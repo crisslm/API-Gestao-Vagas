@@ -1,0 +1,38 @@
+package com.br.cristian.gestao_vagas.modules.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Data
+@Entity(name= "company")
+public class Company{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Pattern(regexp = "\\S+", message = "O campo [username] não deve conter espaços")
+    private String username;
+
+    @Email(message = "O campo [email] deve conter um e-mail válido.")
+    private String email;
+
+    @Length(min = 6, max = 20)
+    private String password;
+    private String name;
+    private String description;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+}
