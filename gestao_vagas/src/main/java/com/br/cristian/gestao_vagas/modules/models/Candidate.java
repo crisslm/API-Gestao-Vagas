@@ -22,13 +22,15 @@ public class Candidate {
     private UUID id;
     private String name;
 
-    @NotBlank()
+    @NotBlank
     @Pattern(regexp = "\\S+", message = "O campo [username] não deve conter espaços")
     private String username;
 
+    @NotBlank
     @Email(message = "O campo [email] deve conter um e-mail válido.")
     private String email;
 
+    @NotBlank
     @Length(min = 6, max = 20)
     private String password;
     private String description;
