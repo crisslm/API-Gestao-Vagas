@@ -27,7 +27,7 @@ public class Company{
     @Email(message = "O campo [email] deve conter um e-mail válido.")
     private String email;
 
-    @Length(min = 6, max = 20)
+    @Length(min = 6, max = 500)
     private String password;
     private String name;
     private String description;
